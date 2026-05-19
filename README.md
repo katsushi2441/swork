@@ -33,7 +33,11 @@ sales@exbridge.jp
 ```text
 SWORK_MAIL_ADDRESS=sales@exbridge.jp
 SWORK_MAIL_PASSWORD=...
-SWORK_SMTP_HOST=mail.exbridge.jp
+SWORK_POP_HOST=pop3.heteml.jp
+SWORK_POP_PORT=995
+SWORK_POP_USER=sales@exbridge.jp
+SWORK_POP_PASSWORD=...
+SWORK_SMTP_HOST=smtp.heteml.jp
 SWORK_SMTP_PORT=587
 SWORK_SMTP_USER=sales@exbridge.jp
 ```
@@ -43,6 +47,7 @@ SWORK_SMTP_USER=sales@exbridge.jp
 - `WORKFLOW.md` - 営業活動の流れ
 - `RULES.md` - SWork運用ルール
 - `DATA_SCHEMA.md` - リード管理データ項目
+- `IMPLEMENTATION.md` - 要件・仕様・実装状況・デプロイ手順
 - `templates/outreach-machine-tools.md` - 機械工具商社向け文面
 - `prompts/lead-research.md` - リード調査プロンプト
 - `prompts/outreach.md` - 営業文面生成プロンプト
