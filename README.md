@@ -44,3 +44,17 @@ SWORK_MAIL_PASSWORD=...
 - `prompts/lead-research.md` - リード調査プロンプト
 - `prompts/outreach.md` - 営業文面生成プロンプト
 
+## 名簿CSV作成
+
+愛知県機械工具商業協同組合の公開名簿から、営業リストCSVを作成する。
+
+```bash
+python3 scripts/build_aikiko_leads.py
+```
+
+出力:
+
+```text
+data/aikiko_leads.csv
+```
+
