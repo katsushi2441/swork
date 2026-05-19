@@ -63,7 +63,7 @@ data/aikiko_leads.csv
 
 ## テストメール送信
 
-exbridge.jp のSWorkメールAPI経由:
+aiknowledgecms.exbridge.jp のSWorkメールAPI経由:
 
 ```bash
 python3 scripts/send_mail_api.py \
@@ -74,16 +74,16 @@ python3 scripts/send_mail_api.py \
 
 ## 返信メール確認
 
-`sales@exbridge.jp` の受信メールは、exbridge.jp上のSWork Inboxで確認する。
+`sales@exbridge.jp` の受信メールは、aiknowledgecms.exbridge.jp上のSWork Inboxで確認する。
 
 ```text
-https://exbridge.jp/swork/inbox.php
+https://aiknowledgecms.exbridge.jp/swork/inbox.php
 ```
 
 - X共通認証でログインする
 - 管理者のみ閲覧できる
 - 「POP受信する」で sales@exbridge.jp のPOPメールを取得する
-- 取得したメールは `contact_data/swork_inbox/` に保存される
+- 取得したメールは `work/swork_inbox/` に保存される
 
 exbridge.jp の問い合わせフォームと同じ `mail()` 方式:
 

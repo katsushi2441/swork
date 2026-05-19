@@ -6,7 +6,7 @@ from pathlib import Path
 from urllib import request
 
 
-DEFAULT_API_URL = "https://exbridge.jp/swork/mail_api.php"
+DEFAULT_API_URL = "https://aiknowledgecms.exbridge.jp/swork/mail_api.php"
 
 
 def load_env_file(path):
@@ -27,7 +27,7 @@ def load_env():
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Send mail through exbridge.jp SWork mail API.")
+    parser = argparse.ArgumentParser(description="Send mail through SWork mail API.")
     parser.add_argument("--to", required=True)
     parser.add_argument("--subject", required=True)
     parser.add_argument("--body", default="")
@@ -78,4 +78,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
