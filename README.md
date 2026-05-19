@@ -99,10 +99,19 @@ https://aiknowledgecms.exbridge.jp/swork/index.php
 ```
 
 - `data/aikiko_leads.csv` を本番 `swork/leads.csv` に配置して表示する
+- 標準表示は問い合わせフォームURLがある顧客だけにする
 - 会社を選択すると、サイト/問い合わせフォーム、課題仮説、営業文面を表示する
 - 問い合わせフォームURL、ステータス、次アクション、メモを保存する
 - 入力準備、送信済みを記録する
 - フォームは画面内または別タブで開き、最後の送信は人が確認する
+
+問い合わせフォームURLを収集する。
+
+```bash
+python3 scripts/find_contact_forms.py
+```
+
+2026-05-19時点で、愛知県機械工具商業協同組合リスト324件中154件の問い合わせフォームURLを取得済み。
 
 exbridge.jp の問い合わせフォームと同じ `mail()` 方式:
 

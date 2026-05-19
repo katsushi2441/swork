@@ -114,6 +114,7 @@ https://aiknowledgecms.exbridge.jp/swork/index.php
 - 管理者ユーザーのみ閲覧可能。
 - `swork/leads.csv` または `work/swork_leads.csv` を読み込む。
 - ターゲット顧客リストを検索・一覧表示する。
+- 標準表示は問い合わせフォームURLがある顧客だけ。フォームがない顧客は通常作業対象から外す。
 - 会社を選択すると、サイト/問い合わせフォーム、課題仮説、営業文面を表示する。
 - フォームURLがある場合は画面内iframeと別タブリンクを表示する。
 - 画面から問い合わせフォームURL、メール、ステータス、次アクション、メモを保存できる。
@@ -121,6 +122,16 @@ https://aiknowledgecms.exbridge.jp/swork/index.php
 - 「入力準備を記録」「送信済みにする」で活動履歴を `work/swork/activities.json` に保存する。
 - 会社名、メール、件名、本文をフォーム入力用に個別コピーできる。
 - クロスドメイン制限やreCAPTCHAがあるので、最後の送信は人が確認する。
+
+問い合わせフォームURL収集:
+
+```bash
+cd /home/kojima/exdirect/swork
+python3 scripts/find_contact_forms.py
+```
+
+このスクリプトは各社公式サイトから問い合わせフォーム候補を探し、`contact_form_url` を埋める。
+2026-05-19時点で `data/aikiko_leads.csv` は324件中154件に問い合わせフォームURLを設定済み。
 
 ## メールサーバ設定
 
