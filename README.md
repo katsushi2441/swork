@@ -103,7 +103,31 @@ https://aiknowledgecms.exbridge.jp/swork/index.php
 - 会社を選択すると、サイト/問い合わせフォーム、課題仮説、営業文面を表示する
 - 問い合わせフォームURL、ステータス、次アクション、メモを保存する
 - 入力準備、送信済みを記録する
-- フォームは画面内または別タブで開き、最後の送信は人が確認する
+- 「フォーム自動入力」でローカルPlaywrightを起動し、問い合わせフォームへ自動入力する
+- 最後の送信/確認ボタンだけ人が確認して押す
+
+フォーム自動入力を使う前に、ローカルで補助サーバを起動する。
+
+```bash
+python3 scripts/form_assistant_server.py
+```
+
+SWork画面の「フォーム自動入力」ボタンを押すと、`127.0.0.1:8765` 経由でブラウザを開き、会社名、担当者名、メール、本文などを入力して送信直前で止める。
+
+自社情報は `.env` に設定する。
+
+```text
+SWORK_COMPANY_NAME=株式会社エクスブリッジ
+SWORK_CONTACT_NAME=
+SWORK_CONTACT_KANA=
+SWORK_COMPANY_PHONE=
+SWORK_COMPANY_ZIP=
+SWORK_COMPANY_PREF=愛知県
+SWORK_COMPANY_ADDRESS=
+SWORK_CONTACT_DEPARTMENT=
+SWORK_CONTACT_POSITION=
+SWORK_COMPANY_WEBSITE=https://exbridge.jp/
+```
 
 問い合わせフォームURLを収集する。
 

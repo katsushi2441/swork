@@ -121,7 +121,30 @@ https://aiknowledgecms.exbridge.jp/swork/index.php
 - CSV本体は直接書き換えない。上書き情報は `work/swork/lead_overrides.json` に保存する。
 - 「入力準備を記録」「送信済みにする」で活動履歴を `work/swork/activities.json` に保存する。
 - 会社名、メール、件名、本文をフォーム入力用に個別コピーできる。
+- `scripts/form_assistant_server.py` をローカルで起動すると、SWork画面の「フォーム自動入力」ボタンからPlaywright自動入力を起動できる。
+- `scripts/fill_contact_form.py` は相手サイトのフォームを開き、会社名、担当者名、メール、電話、住所、件名、本文などを可能な範囲で自動入力し、送信直前で止める。
 - クロスドメイン制限やreCAPTCHAがあるので、最後の送信は人が確認する。
+
+フォーム自動入力:
+
+```bash
+cd /home/kojima/exdirect/swork
+python3 scripts/form_assistant_server.py
+```
+
+単体実行:
+
+```bash
+python3 scripts/fill_contact_form.py --lead-id 215314f8bcfc
+```
+
+headless検証:
+
+```bash
+python3 scripts/fill_contact_form.py --lead-id 215314f8bcfc --headless --screenshot /tmp/swork-fill-test.png
+```
+
+自社情報は `.env` に `SWORK_COMPANY_PHONE`、`SWORK_COMPANY_ADDRESS` などを設定する。
 
 問い合わせフォームURL収集:
 
