@@ -63,6 +63,15 @@ data/aikiko_leads.csv
 
 ## テストメール送信
 
+exbridge.jp のSWorkメールAPI経由:
+
+```bash
+python3 scripts/send_mail_api.py \
+  --to sales@exbridge.jp \
+  --subject "SWork test" \
+  --body "SWorkからのテスト送信です。"
+```
+
 exbridge.jp の問い合わせフォームと同じ `mail()` 方式:
 
 ```bash
