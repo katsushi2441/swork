@@ -72,6 +72,19 @@ python3 scripts/send_mail_api.py \
   --body "SWorkからのテスト送信です。"
 ```
 
+## 返信メール確認
+
+`sales@exbridge.jp` の受信メールは、exbridge.jp上のSWork Inboxで確認する。
+
+```text
+https://exbridge.jp/swork/inbox.php
+```
+
+- X共通認証でログインする
+- 管理者のみ閲覧できる
+- 「POP受信する」で sales@exbridge.jp のPOPメールを取得する
+- 取得したメールは `contact_data/swork_inbox/` に保存される
+
 exbridge.jp の問い合わせフォームと同じ `mail()` 方式:
 
 ```bash
