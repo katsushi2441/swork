@@ -33,6 +33,9 @@ sales@exbridge.jp
 ```text
 SWORK_MAIL_ADDRESS=sales@exbridge.jp
 SWORK_MAIL_PASSWORD=...
+SWORK_SMTP_HOST=mail.exbridge.jp
+SWORK_SMTP_PORT=587
+SWORK_SMTP_USER=sales@exbridge.jp
 ```
 
 ## 主要ファイル
@@ -58,3 +61,22 @@ python3 scripts/build_aikiko_leads.py
 data/aikiko_leads.csv
 ```
 
+## テストメール送信
+
+exbridge.jp の問い合わせフォームと同じ `mail()` 方式:
+
+```bash
+php scripts/send_mail_php.php \
+  --to sales@exbridge.jp \
+  --subject "SWork test" \
+  --body "SWorkからのテスト送信です。"
+```
+
+SMTP方式:
+
+```bash
+python3 scripts/send_mail.py \
+  --to sales@exbridge.jp \
+  --subject "SWork test" \
+  --body "SWorkからのテスト送信です。"
+```
