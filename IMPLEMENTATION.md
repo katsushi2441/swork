@@ -94,6 +94,30 @@ https://aiknowledgecms.exbridge.jp/swork/inbox.php
 - 取得メールはサーバ側 `work/swork_inbox/` にJSON保存。
 - POPメールは削除しない。
 
+### ターゲット顧客一覧
+
+公開先:
+
+```text
+https://aiknowledgecms.exbridge.jp/swork/index.php
+```
+
+ローカル実体:
+
+```text
+/home/kojima/exdirect/aiknowledgecms/swork/index.php
+```
+
+仕様:
+
+- `aiknowledgecms/auth_common.php` の共通X認証を使う。
+- 管理者ユーザーのみ閲覧可能。
+- `swork/leads.csv` または `work/swork_leads.csv` を読み込む。
+- ターゲット顧客リストを検索・一覧表示する。
+- 会社を選択すると、サイト/問い合わせフォーム、課題仮説、営業文面を表示する。
+- フォームURLがある場合は画面内iframeと別タブリンクを表示する。
+- クロスドメイン制限やreCAPTCHAがあるので、最後の送信は人が確認する。
+
 ## メールサーバ設定
 
 heteml の設定:
@@ -130,8 +154,13 @@ SWORK_SMTP_USER=sales@exbridge.jp
 ```text
 aiknowledgecms/swork/inbox.php    -> /web/aiknowledgecms_exbridge_jp/swork/inbox.php
 aiknowledgecms/swork/mail_api.php -> /web/aiknowledgecms_exbridge_jp/swork/mail_api.php
+aiknowledgecms/swork/index.php    -> /web/aiknowledgecms_exbridge_jp/swork/index.php
+swork/data/aikiko_leads.csv       -> /web/aiknowledgecms_exbridge_jp/swork/leads.csv
 swork/.env                        -> /web/aiknowledgecms_exbridge_jp/swork/.env
+aiknowledgecms/swork/.htaccess    -> /web/aiknowledgecms_exbridge_jp/swork/.htaccess
 ```
+
+`leads.csv` と `.env` は `.htaccess` で直アクセスを拒否する。
 
 旧配置は削除済み:
 

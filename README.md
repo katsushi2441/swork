@@ -90,6 +90,18 @@ https://aiknowledgecms.exbridge.jp/swork/inbox.php
 - 「POP受信する」で sales@exbridge.jp のPOPメールを取得する
 - 取得したメールは `work/swork_inbox/` に保存される
 
+## ターゲット顧客一覧
+
+X共通認証後、営業リストをWebで確認する。
+
+```text
+https://aiknowledgecms.exbridge.jp/swork/index.php
+```
+
+- `data/aikiko_leads.csv` を本番 `swork/leads.csv` に配置して表示する
+- 会社を選択すると、サイト/問い合わせフォーム、課題仮説、営業文面を表示する
+- フォームは画面内または別タブで開き、最後の送信は人が確認する
+
 exbridge.jp の問い合わせフォームと同じ `mail()` 方式:
 
 ```bash
