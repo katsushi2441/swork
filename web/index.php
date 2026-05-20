@@ -198,13 +198,12 @@ $statuses = array('new', 'researched', 'drafted', 'form_ready', 'sent', 'replied
 $form_ready_count = 0;
 foreach ($all_leads as $lead) if (!empty($lead['contact_form_url'])) $form_ready_count++;
 $copy_payload = array(
-    '会社名' => isset($selected['company_name']) ? $selected['company_name'] : '',
-    '名前' => 'ご担当者様',
+    '会社名' => '株式会社エクスブリッジ',
+    '担当者名' => '小島',
     'メール' => 'sales@exbridge.jp',
     '件名' => $subject,
     '本文' => $body,
 );
-$assistant_url = $selected && !empty($selected['id']) ? 'http://127.0.0.1:8765/fill?lead_id=' . rawurlencode($selected['id']) : '';
 ?>
 <!doctype html>
 <html lang="ja">
@@ -213,7 +212,7 @@ $assistant_url = $selected && !empty($selected['id']) ? 'http://127.0.0.1:8765/f
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SWork</title>
 <style>
-body{margin:0;background:#f3f5f4;color:#111;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans",Meiryo,sans-serif;line-height:1.55}.top{background:#fff;border-bottom:1px solid #dce2df}.wrap{max-width:1360px;margin:0 auto;padding:16px}.bar{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-weight:800;color:#111;text-decoration:none}.nav,.tools,.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:6px 10px;border:1px solid #c7d0cc;background:#fff;border-radius:4px;color:#111;text-decoration:none;cursor:pointer;font-size:13px;white-space:nowrap}.primary{background:#0f766e;color:#fff;border-color:#0f766e}.danger{background:#fff1f2;border-color:#fecdd3}.grid{display:grid;grid-template-columns:minmax(430px,.95fr) minmax(520px,1.15fr);gap:14px}.panel{background:#fff;border:1px solid #d7dfdb;border-radius:6px;overflow:hidden}.panel-h{padding:11px 13px;border-bottom:1px solid #e8eeeb;display:flex;align-items:center;justify-content:space-between;gap:10px}.panel-b{padding:13px}.search{display:grid;grid-template-columns:1fr 130px 130px auto;gap:8px}.input,select,textarea{box-sizing:border-box;border:1px solid #c7d0cc;border-radius:4px;background:#fff;color:#111;font:inherit;font-size:13px}.input,select{min-height:34px;padding:6px 8px}textarea{width:100%;padding:9px;line-height:1.6}.table-wrap{overflow:auto;max-height:74vh}table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:8px 9px;border-bottom:1px solid #edf1ef;text-align:left;vertical-align:top}th{position:sticky;top:0;background:#fbfcfc;z-index:1}.company{font-weight:800}.muted{color:#66706b;font-size:12px}.tag{display:inline-flex;padding:2px 7px;border:1px solid #d7dfdb;border-radius:999px;font-size:11px;color:#44504a;background:#f8faf9}.selected{background:#ecfdf5}.detail{display:grid;gap:12px}.kv{display:grid;grid-template-columns:110px 1fr;gap:8px;font-size:13px}.copybox{min-height:150px}.subject{width:100%}.empty{padding:18px;color:#66706b}.ok{background:#ecfdf5;border:1px solid #a7f3d0;padding:9px;border-radius:4px}.err{background:#fff1f2;border:1px solid #fecdd3;padding:9px;border-radius:4px}.frame{width:100%;height:48vh;border:1px solid #c7d0cc;border-radius:4px;background:#fff}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.full{grid-column:1/-1}.field-copy{display:grid;grid-template-columns:90px 1fr auto;gap:8px;align-items:center}.mini{font-size:12px}@media(max-width:960px){.grid,.search,.form-grid{grid-template-columns:1fr}.table-wrap{max-height:none}.frame{height:58vh}.field-copy{grid-template-columns:1fr}}
+body{margin:0;background:#eef1f3;color:#111;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans",Meiryo,sans-serif;line-height:1.55}.top{background:#101820;color:#fff;border-bottom:1px solid #22313a}.wrap{max-width:1440px;margin:0 auto;padding:16px}.bar{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-weight:900;color:#fff;text-decoration:none;letter-spacing:.2px}.nav,.tools,.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:7px 12px;border:1px solid #cbd5d9;background:#fff;border-radius:6px;color:#111;text-decoration:none;cursor:pointer;font-size:13px;white-space:nowrap}.primary{background:#0f766e;color:#fff;border-color:#0f766e}.openform{background:#f97316;color:#fff;border-color:#f97316;font-weight:800}.danger{background:#fff1f2;border-color:#fecdd3}.grid{display:grid;grid-template-columns:minmax(430px,.9fr) minmax(560px,1.2fr);gap:16px}.panel{background:#fff;border:1px solid #d9e0e3;border-radius:8px;overflow:hidden;box-shadow:0 1px 2px rgba(16,24,32,.05)}.panel-h{padding:13px 15px;border-bottom:1px solid #e8eef0;display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fbfcfd}.panel-b{padding:15px}.search{display:grid;grid-template-columns:1fr 130px 130px auto;gap:8px}.input,select,textarea{box-sizing:border-box;border:1px solid #c7d0cc;border-radius:6px;background:#fff;color:#111;font:inherit;font-size:13px}.input,select{min-height:36px;padding:7px 9px}textarea{width:100%;padding:10px;line-height:1.65}.table-wrap{overflow:auto;max-height:78vh}table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:9px 10px;border-bottom:1px solid #edf1ef;text-align:left;vertical-align:top}th{position:sticky;top:0;background:#fbfcfc;z-index:1}.company{font-weight:850}.muted{color:#66706b;font-size:12px}.tag{display:inline-flex;padding:2px 7px;border:1px solid #d7dfdb;border-radius:999px;font-size:11px;color:#44504a;background:#f8faf9}.selected{background:#e8f7f2}.detail{display:grid;gap:14px}.kv{display:grid;grid-template-columns:110px 1fr;gap:8px;font-size:13px}.copybox{min-height:220px}.subject{width:100%}.empty{padding:18px;color:#66706b}.ok{background:#ecfdf5;border:1px solid #a7f3d0;padding:10px;border-radius:6px}.err{background:#fff1f2;border:1px solid #fecdd3;padding:10px;border-radius:6px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.full{grid-column:1/-1}.field-copy{display:grid;grid-template-columns:96px 1fr auto;gap:8px;align-items:center}.mini{font-size:12px}.workflow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.step{background:#f7faf9;border:1px solid #dce6e2;border-radius:8px;padding:10px;font-size:12px}.step strong{display:block;font-size:13px;margin-bottom:3px}.copy-toast{position:fixed;right:18px;bottom:18px;background:#101820;color:#fff;padding:10px 14px;border-radius:6px;opacity:0;transform:translateY(8px);transition:.18s}.copy-toast.show{opacity:1;transform:translateY(0)}@media(max-width:960px){.grid,.search,.form-grid,.workflow{grid-template-columns:1fr}.table-wrap{max-height:none}.field-copy{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -259,8 +258,7 @@ body{margin:0;background:#f3f5f4;color:#111;font-family:-apple-system,BlinkMacSy
     <strong><?php echo h(isset($selected['company_name']) ? $selected['company_name'] : '詳細'); ?></strong>
     <div class="tools">
       <?php if($site_url): ?><a class="btn" href="<?php echo h($site_url); ?>" target="_blank" rel="noopener">公式サイト</a><?php endif; ?>
-      <?php if($form_url): ?><a class="btn primary" href="<?php echo h($form_url); ?>" target="_blank" rel="noopener">フォームを別タブで開く</a><?php endif; ?>
-      <?php if($form_url): ?><a class="btn primary" href="<?php echo h($assistant_url); ?>" target="_blank" rel="noopener">フォーム自動入力</a><?php endif; ?>
+      <?php if($form_url): ?><a class="btn openform" href="<?php echo h($form_url); ?>" target="_blank" rel="noopener" onclick="markOpened()">問い合わせフォームを開く</a><?php endif; ?>
     </div>
   </div>
   <div class="panel-b detail">
@@ -283,13 +281,20 @@ body{margin:0;background:#f3f5f4;color:#111;font-family:-apple-system,BlinkMacSy
 
     <div class="kv"><div class="muted">課題仮説</div><div><?php echo h(isset($selected['hypothesis']) ? $selected['hypothesis'] : ''); ?></div></div>
 
+    <div class="workflow">
+      <div class="step"><strong>1. 開く</strong>問い合わせフォームを別タブで開く</div>
+      <div class="step"><strong>2. コピー</strong>必要項目をこの画面からコピー</div>
+      <div class="step"><strong>3. 貼付</strong>相手フォームへ貼り付ける</div>
+      <div class="step"><strong>4. 記録</strong>送信後にSWorkへ記録</div>
+    </div>
+
     <div class="detail">
-      <strong>フォーム入力用データ</strong>
+      <strong>コピー項目</strong>
       <?php foreach($copy_payload as $label => $value): ?>
       <div class="field-copy"><span class="muted"><?php echo h($label); ?></span><input class="input" value="<?php echo h($value); ?>" readonly><button class="btn mini" type="button" onclick="copyText(this)">コピー</button></div>
       <?php endforeach; ?>
       <textarea class="copybox" id="body"><?php echo h($body); ?></textarea>
-      <div class="tools"><button class="btn" type="button" onclick="copyMainBody()">本文コピー</button><button class="btn" type="button" onclick="copyAllFields()">全項目コピー</button></div>
+      <div class="tools"><button class="btn primary" type="button" onclick="copyMainBody()">本文コピー</button><button class="btn" type="button" onclick="copyAllFields()">全項目コピー</button></div>
     </div>
 
     <form method="post" class="row">
@@ -301,11 +306,7 @@ body{margin:0;background:#f3f5f4;color:#111;font-family:-apple-system,BlinkMacSy
       <button class="btn primary" name="action" value="form_sent">送信済みとして記録</button>
     </form>
 
-    <?php if($form_url): ?>
-    <div class="ok">フォーム自動入力を使う前に、ローカルで <code>python3 scripts/form_assistant_server.py</code> を起動してください。</div>
-    <iframe class="frame" src="<?php echo h($form_url); ?>"></iframe>
-    <div class="muted">iframe表示できないサイトは「フォームを別タブで開く」を使ってください。</div>
-    <?php else: ?>
+    <?php if(!$form_url): ?>
     <div class="empty">問い合わせフォームURLを登録してください。公式サイトを開いてフォームURLを確認できます。</div>
     <?php endif; ?>
     <?php endif; ?>
@@ -316,6 +317,7 @@ body{margin:0;background:#f3f5f4;color:#111;font-family:-apple-system,BlinkMacSy
 </main>
 <script>
 function copyValue(value){
+  showCopied();
   if (navigator.clipboard) return navigator.clipboard.writeText(value);
   const t = document.createElement('textarea');
   t.value = value;
@@ -323,6 +325,15 @@ function copyValue(value){
   t.select();
   document.execCommand('copy');
   document.body.removeChild(t);
+}
+function showCopied(){
+  const toast = document.getElementById('copy-toast');
+  if (!toast) return;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 900);
+}
+function markOpened(){
+  document.body.dataset.formOpened = '1';
 }
 function copyText(btn){
   const input = btn.parentNode.querySelector('input');
@@ -341,5 +352,6 @@ function copyAllFields(){
   copyValue(rows.join("\n"));
 }
 </script>
+<div id="copy-toast" class="copy-toast">コピーしました</div>
 </body>
 </html>

@@ -44,7 +44,7 @@ SWORK_SMTP_USER=sales@exbridge.jp
 
 ## 主要ファイル
 
-- `web/index.php` - SWorkターゲット顧客一覧・フォーム自動入力起動
+- `web/index.php` - SWorkターゲット顧客一覧・コピペ送信支援
 - `web/inbox.php` - sales@exbridge.jp 受信箱
 - `web/mail_api.php` - SWorkメール送信API
 - `web/.htaccess` - PHPバージョン指定、`.env` / `leads.csv` 直アクセス拒否
@@ -109,31 +109,8 @@ https://aiknowledgecms.exbridge.jp/swork/index.php
 - 会社を選択すると、サイト/問い合わせフォーム、課題仮説、営業文面を表示する
 - 問い合わせフォームURL、ステータス、次アクション、メモを保存する
 - 入力準備、送信済みを記録する
-- 「フォーム自動入力」でローカルPlaywrightを起動し、問い合わせフォームへ自動入力する
-- 最後の送信/確認ボタンだけ人が確認して押す
-
-フォーム自動入力を使う前に、ローカルで補助サーバを起動する。
-
-```bash
-python3 scripts/form_assistant_server.py
-```
-
-SWork画面の「フォーム自動入力」ボタンを押すと、`127.0.0.1:8765` 経由でブラウザを開き、会社名、担当者名、メール、本文などを入力して送信直前で止める。
-
-自社情報は `.env` に設定する。
-
-```text
-SWORK_COMPANY_NAME=株式会社エクスブリッジ
-SWORK_CONTACT_NAME=
-SWORK_CONTACT_KANA=
-SWORK_COMPANY_PHONE=
-SWORK_COMPANY_ZIP=
-SWORK_COMPANY_PREF=愛知県
-SWORK_COMPANY_ADDRESS=
-SWORK_CONTACT_DEPARTMENT=
-SWORK_CONTACT_POSITION=
-SWORK_COMPANY_WEBSITE=https://exbridge.jp/
-```
+- 問い合わせフォームを別タブで開き、SWork画面から必要項目をコピーして貼り付ける
+- 最後の送信/確認ボタンは人が確認して押す
 
 問い合わせフォームURLを収集する。
 
