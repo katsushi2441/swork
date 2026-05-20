@@ -40,7 +40,7 @@ https://aiknowledgecms.exbridge.jp/swork/mail_api.php
 ローカル実体:
 
 ```text
-/home/kojima/exdirect/aiknowledgecms/swork/mail_api.php
+/home/kojima/exdirect/swork/web/mail_api.php
 ```
 
 仕様:
@@ -83,7 +83,7 @@ https://aiknowledgecms.exbridge.jp/swork/inbox.php
 ローカル実体:
 
 ```text
-/home/kojima/exdirect/aiknowledgecms/swork/inbox.php
+/home/kojima/exdirect/swork/web/inbox.php
 ```
 
 仕様:
@@ -105,7 +105,7 @@ https://aiknowledgecms.exbridge.jp/swork/index.php
 ローカル実体:
 
 ```text
-/home/kojima/exdirect/aiknowledgecms/swork/index.php
+/home/kojima/exdirect/swork/web/index.php
 ```
 
 仕様:
@@ -190,12 +190,12 @@ SWORK_SMTP_USER=sales@exbridge.jp
 アップロード先:
 
 ```text
-aiknowledgecms/swork/inbox.php    -> /web/aiknowledgecms_exbridge_jp/swork/inbox.php
-aiknowledgecms/swork/mail_api.php -> /web/aiknowledgecms_exbridge_jp/swork/mail_api.php
-aiknowledgecms/swork/index.php    -> /web/aiknowledgecms_exbridge_jp/swork/index.php
+ swork/web/inbox.php               -> /web/aiknowledgecms_exbridge_jp/swork/inbox.php
+ swork/web/mail_api.php            -> /web/aiknowledgecms_exbridge_jp/swork/mail_api.php
+ swork/web/index.php               -> /web/aiknowledgecms_exbridge_jp/swork/index.php
 swork/data/aikiko_leads.csv       -> /web/aiknowledgecms_exbridge_jp/swork/leads.csv
 swork/.env                        -> /web/aiknowledgecms_exbridge_jp/swork/.env
-aiknowledgecms/swork/.htaccess    -> /web/aiknowledgecms_exbridge_jp/swork/.htaccess
+ swork/web/.htaccess               -> /web/aiknowledgecms_exbridge_jp/swork/.htaccess
 ```
 
 `leads.csv` と `.env` は `.htaccess` で直アクセスを拒否する。
@@ -221,6 +221,8 @@ AIKnowledgeCMS:
 /home/kojima/exdirect/aiknowledgecms
 git@github.com:katsushi2441/aiknowledgecms.git
 ```
+
+注意: SWorkのPHP公開ファイルの正本は `swork` リポジトリの `web/` 配下。`aiknowledgecms/swork/` は過去の作業場所で、今後の編集元にしない。
 
 関連コミット:
 

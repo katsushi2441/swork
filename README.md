@@ -44,6 +44,10 @@ SWORK_SMTP_USER=sales@exbridge.jp
 
 ## 主要ファイル
 
+- `web/index.php` - SWorkターゲット顧客一覧・フォーム自動入力起動
+- `web/inbox.php` - sales@exbridge.jp 受信箱
+- `web/mail_api.php` - SWorkメール送信API
+- `web/.htaccess` - PHPバージョン指定、`.env` / `leads.csv` 直アクセス拒否
 - `WORKFLOW.md` - 営業活動の流れ
 - `RULES.md` - SWork運用ルール
 - `DATA_SCHEMA.md` - リード管理データ項目
@@ -98,6 +102,8 @@ X共通認証後、営業リストをWebで確認する。
 https://aiknowledgecms.exbridge.jp/swork/index.php
 ```
 
+- ソースは `swork` リポジトリの `web/index.php`
+- 公開時は `web/` 配下を `/web/aiknowledgecms_exbridge_jp/swork/` にFTP配置する
 - `data/aikiko_leads.csv` を本番 `swork/leads.csv` に配置して表示する
 - 標準表示は問い合わせフォームURLがある顧客だけにする
 - 会社を選択すると、サイト/問い合わせフォーム、課題仮説、営業文面を表示する
